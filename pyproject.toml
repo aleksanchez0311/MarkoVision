@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "markovision"
+version = "1.0.0"
+description = "Hidden Markov Model for Market Regime Detection"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "MarkoVision", email = "markovision@example.com"}
+]
+keywords = ["hmm", "market", "regime", "trading", "analysis"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "pandas>=1.5.0",
+    "numpy>=1.21.0",
+    "hmmlearn>=0.2.7",
+    "plotly>=5.10.0",
+    "dash>=2.9.0",
+    "scikit-learn>=1.0.0",
+    "scipy>=1.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+prod = [
+    "gunicorn>=21.0.0",
+]
+exe = [
+    "pyinstaller>=6.0.0",
+    "pillow>=10.0.0",
+]
+
+[project.scripts]
+markovision = "app:main"
+markovision-dashboard = "app:run_dashboard"
+
+[project.urls]
+Homepage = "https://github.com/markovision/markovision"
+Repository = "https://github.com/markovision/markovision"
+Issues = "https://github.com/markovision/markovision/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*", "dashboard*", "hmm_model*", "data_generator*"]
