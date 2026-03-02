@@ -1,0 +1,22 @@
+# MarkovLens Pro - Dependencias
+# =================================
+# Instalar todas las dependencias con: pip install -r requirements.txt
+
+# Core
+pandas>=1.5.0
+numpy>=1.21.0
+
+# Modelo HMM
+hmmlearn>=0.2.7
+
+# Visualización
+plotly>=5.10.0
+dash>=2.9.0
+
+# Opcional: Datos reales (comentar si no se usa)
+# yfinance>=0.2.0
+# ccxt>=2.0.0
+
+# Utilidades
+scikit-learn>=1.0.0
+scipy>=1.9.0

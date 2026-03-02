@@ -1,0 +1,431 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-glass: rgba(30, 41, 59, 0.7);
+  --accent-primary: #00f2ff;
+  --accent-secondary: #7000ff;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-glass: rgba(255, 255, 255, 0.1);
+  --shadow-premium:
+    0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  --radius-xl: 16px;
+  --radius-md: 8px;
+  --Dash-Spacing: 4px;
+  --Dash-Stroke-Strong: rgba(0, 18, 77, 0.45);
+  --Dash-Stroke-Weak: rgba(0, 24, 102, 0.1);
+  --Dash-Fill-Interactive-Strong: rgba(0, 18, 77, 0.87);
+  --Dash-Fill-Interactive-Weak: rgba(0, 30, 128, 0.04);
+  --Dash-Fill-Inverse-Strong: rgba(0, 12, 51, 0.9);
+  --Dash-Text-Primary: rgba(0, 18, 77, 0.87);
+  --Dash-Text-Strong: rgba(0, 9, 38, 0.9);
+  --Dash-Text-Weak: rgba(0, 12, 51, 0.65);
+  --Dash-Text-Disabled: rgba(0, 21, 89, 0.6);
+  --Dash-Fill-Primary-Hover: rgba(0, 18, 77, 0.04);
+  --Dash-Fill-Primary-Active: rgba(0, 18, 77, 0.08);
+  --Dash-Fill-Disabled: rgba(0, 24, 102, 0.1);
+  --Dash-Shading-Strong: rgba(22, 23, 24, 0.35);
+  --Dash-Shading-Weak: rgba(22, 23, 24, 0.2);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background-image:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(112, 0, 255, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(0, 242, 255, 0.1) 0%,
+      transparent 50%
+    );
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-premium);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+  box-shadow:
+    0 15px 35px -5px rgba(0, 0, 0, 0.4),
+    0 12px 15px -8px rgba(0, 0, 0, 0.4);
+}
+
+/* Sidebar/Controls */
+.sidebar {
+  padding: 24px;
+  height: auto;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1000; /* Asegurar que esté por encima de los contenedores de gráficos */
+}
+
+.control-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-item label {
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  display: block;
+}
+
+/* Main Content */
+.main-content {
+  padding: 30px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border-glass);
+  margin-bottom: 40px;
+}
+
+.title-group h1 {
+  font-size: 38px;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.title-group p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin: 8px 0 0 0;
+}
+
+/* Custom Selectors - Light Theme for Selectors */
+.Select-control,
+.Select-control:hover,
+.is-focused > .Select-control,
+.is-open > .Select-control,
+div[class*="Select-control"],
+.dropdown .Select-control {
+  background-color: #f8fafc !important; /* Fondo claro sólido */
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: var(--radius-md) !important;
+  height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+  cursor: pointer !important;
+}
+
+/* Valor seleccionado y texto oscuro */
+.Select-value,
+.Select-value-label,
+.Select-single-value,
+.Select-value-label span,
+div[class*="Select-value"],
+div[class*="singleValue"] {
+  color: #1e293b !important; /* Texto oscuro */
+  opacity: 1 !important;
+  visibility: visible !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+.Select-placeholder {
+  color: rgba(30, 41, 59, 0.5) !important;
+  padding-left: 12px !important;
+  position: absolute !important;
+}
+
+.Select-input {
+  height: 40px !important;
+  line-height: 40px !important;
+}
+
+.Select-input > input {
+  color: #1e293b !important;
+  height: 100% !important;
+}
+
+/* Menú de Opciones (El que se despliega) */
+.Select-menu-outer,
+.Select-menu,
+div[class*="Select-menu"],
+div[class*="menu"] {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: var(--radius-md) !important;
+  color: #1e293b !important;
+  z-index: 10000 !important;
+  position: absolute !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Opciones Individuales */
+.Select-option,
+.VirtualizedSelectOption,
+div[class*="Select-option"],
+div[class*="option"] {
+  color: #1e293b !important;
+  /*background-color: #ffffff !important;*/
+  padding: 10px 15px !important;
+  cursor: pointer !important;
+}
+
+.Select-option:hover,
+.Select-option.is-focused,
+.VirtualizedSelectFocusedOption,
+div[class*="Select-option"]:hover,
+div[class*="option"][class*="focused"] {
+  background-color: #f1f5f9 !important;
+  color: var(--accent-secondary) !important;
+  font-weight: 600 !important;
+}
+
+/* Flecha y divisores oscuros */
+.Select-arrow {
+  border-top-color: #64748b !important;
+}
+
+.is-open > .Select-control .Select-arrow {
+  border-bottom-color: #64748b !important;
+}
+
+.Select-clear-zone:hover {
+  color: #ef4444 !important;
+}
+
+.is-focused:not(.is-open) > .Select-control {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 2px rgba(0, 242, 255, 0.2) !important;
+}
+
+/* Buttons */
+.btn-premium {
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 12px 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(112, 0, 255, 0.3);
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(112, 0, 255, 0.4);
+}
+
+.btn-premium:active {
+  transform: translateY(0);
+}
+
+/* Stats Badges */
+.stat-card {
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin: 10px 0;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+/* Market Status Bar */
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 25px;
+  background: var(--bg-secondary);
+  border-radius: 50px;
+  border: 1px solid var(--border-glass);
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.status-indicator {
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Charts */
+.chart-container {
+  padding: 15px;
+  position: relative;
+  z-index: 1; /* Menor que el sidebar */
+}
+
+/* Loading Overlay Premium Optimized */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(20px);
+  display: flex !important;
+  opacity: 0;
+  visibility: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  pointer-events: none;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+}
+
+/* Mostrar solo si la carga tarda más de 300ms */
+body:has([data-dash-is-loading="true"]) .loading-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transition-delay: 0.3s;
+}
+
+.loader-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.loader-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: var(--accent-primary);
+  animation: spin 1.5s linear infinite;
+}
+
+.loader-ring:nth-child(2) {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  border-top-color: var(--accent-secondary);
+  animation: spin 2s linear infinite reverse;
+}
+
+.loader-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 800;
+  font-size: 14px;
+  color: white;
+  letter-spacing: 2px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+/* Custom Overrides for dcc.Loading */
+._dash-loading {
+  display: none !important;
+}
+
+.loading-text {
+  margin-top: 20px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
