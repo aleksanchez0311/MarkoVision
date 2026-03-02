@@ -1,4 +1,4 @@
-# MarkovLens Pro
+# MarkoVision
 
 **Análisis de Regímenes de Mercado con Modelo Oculto de Markov (HMM)**
 
@@ -6,28 +6,31 @@
 
 ## Descripción
 
-MarkovLens Pro es una herramienta de análisis cuantitativo que implementa un Modelo Oculto de Markov (GaussianHMM) para la detección automática de regímenes de mercado. La aplicación incluye un dashboard visual interactivo que permite visualizar los diferentes estados del mercado en gráficos de velas.
+MarkoVision es una herramienta de análisis cuantitativo que implementa un Modelo Oculto de Markov (GaussianHMM) para la detección automática de regímenes de mercado. La aplicación incluye un dashboard visual interactivo que permite visualizar los diferentes estados del mercado en gráficos de velas.
 
 ## Características Principales
 
-- ✅ **Modelo HMM**: Implementación con GaussianHMM de hmmlearn
-- ✅ **Selector de Regímenes**: Configurable entre 3 y 7 estados
-- ✅ **Múltiples Timeframes**: Soporte para 5m, 15m, 1h, 4h, 1d
-- ✅ **Feature Engineering**: Retornos logarítmicos, volatilidad (ATR), momentum (RSI y pendiente SMA)
-- ✅ **Dashboard Visual**: Gráficos de velas con fondo sombreado por régimen
-- ✅ **Interfaz Interactiva**: Dropdowns para timeframe y número de regímenes
+- **Modelo HMM**: Implementación con GaussianHMM de hmmlearn
+- **Selector de Regímenes**: Configurable entre 3 y 7 estados
+- **Múltiples Timeframes**: Soporte para 5m, 15m, 1h, 4h, 1d
+- **Feature Engineering**: Retornos logarítmicos, volatilidad (ATR), momentum (RSI y pendiente SMA)
+- **Dashboard Visual**: Gráficos de velas con fondo sombreado por régimen
+- **Interfaz Interactiva**: Dropdowns para timeframe y número de regímenes
+- **Loader**: Spinner de carga durante actualizaciones
 
 ## Estructura del Proyecto
 
 ```
 MarkoVision/
 ├── SPECS.md              # Especificaciones del proyecto
-├── README.md            # Este archivo
-├── requirements.txt     # Dependencias Python
+├── README.md             # Este archivo
+├── requirements.txt      # Dependencias Python
 ├── app.py               # Script principal (CLI + Dashboard)
 ├── data_generator.py    # Generación de datos + Feature Engineering
-├── hmm_model.py         # Modelo HMM
-└── dashboard.py         # Dashboard visual con Plotly Dash
+├── hmm_model.py          # Modelo HMM
+├── dashboard.py          # Dashboard visual con Plotly Dash
+└── assets/
+    └── style.css         # Estilos adicionales
 ```
 
 ## Instalación
@@ -42,7 +45,7 @@ pip install -r requirements.txt
 
 ## Uso
 
-### Opción 1: Dashboard Visual (Recomendado)
+### Dashboard Visual (Recomendado)
 
 Inicia el dashboard interactivo:
 
@@ -52,7 +55,7 @@ python app.py --dashboard
 
 Accede a: `http://127.0.0.1:8050`
 
-### Opción 2: Análisis CLI
+### Análisis CLI
 
 Ejecuta un análisis por línea de comandos:
 
@@ -60,7 +63,7 @@ Ejecuta un análisis por línea de comandos:
 python app.py --analyze --timeframe 1h --regimes 4
 ```
 
-### Opción 3: Demostración
+### Demostración
 
 Ejecuta una demostración rápida:
 
@@ -110,13 +113,13 @@ El modelo HMM se entrena con características multidimensionales:
 
 La aplicación detecta y clasifica los siguientes regímenes:
 
-| Régimen           | Color            | Descripción                            |
-| ----------------- | ---------------- | -------------------------------------- |
-| Caída Fuerte      | 🔴 Rojo Intenso  | Tendencia bajista con alta volatilidad |
-| Tendencia Bajista | 🔴 Rojo          | Movimiento descendente                 |
-| Mercado Lateral   | ⚪ Gris          | Consolidação sin tendencia clara       |
-| Alta Vol. Alcista | 🟢 Verde Azulado | Subida con volatilidad                 |
-| Tendencia Alcista | 🔵 Azul          | Movimiento ascendente                  |
+| Régimen           | Color         | Descripción                            |
+| ----------------- | ------------- | -------------------------------------- |
+| Caída Fuerte      | Rojo Intenso  | Tendencia bajista con alta volatilidad |
+| Tendencia Bajista | Rojo          | Movimiento descendente                 |
+| Mercado Lateral   | Gris          | Consolidación sin tendencia clara      |
+| Alta Vol. Alcista | Verde Azulado | Subida con volatilidad                 |
+| Tendencia Alcista | Azul          | Movimiento ascendente                  |
 
 ## Matriz de Transición
 
@@ -131,9 +134,16 @@ El dashboard muestra la matriz de transición de probabilidades, que indica la p
 - **plotly** - Visualización interactiva
 - **dash** - Framework del dashboard
 
+## Acceso desde Red Local
+
+El servidor está configurado para aceptar conexiones desde cualquier dirección IP:
+
+- **Local**: http://127.0.0.1:8050
+- **Red local**: http://[TU-IP-LOCAL]:8050
+
 ## Licencia
 
-© 2026 MarkovLens Pro - Todos los derechos reservados.
+© 2026 MarkoVision - Todos los derechos reservados.
 
 ## Notas
 

@@ -1,9 +1,9 @@
 """
-Dashboard Visual Interactivo - MarkovLens Pro
+Dashboard Visual Interactivo - MarkoVision
 ==============================================
 Panel de visualización con gráficos de velas y regímenes de mercado.
 
-Autor: MarkovLens Pro
+Autor: MarkoVision
 Fecha: 2026
 """
 
@@ -27,7 +27,7 @@ class MarketDashboard:
 
     def __init__(self):
         """Inicializa el dashboard."""
-        self.app = dash.Dash(__name__, title="MarkovLens Pro", update_title=None)
+        self.app = dash.Dash(__name__, title="MarkoVision", update_title=None)
 
         self._setup_layout()
         self._setup_callbacks()
@@ -63,7 +63,7 @@ class MarketDashboard:
                             [
                                 html.Div(
                                     [
-                                        html.H1("MARKOVLENS PRO"),
+                                        html.H1("MARKOVISION"),
                                         html.P(
                                             "Análisis Predictivo de Regímenes de Mercado con HMM",
                                         ),
@@ -84,6 +84,7 @@ class MarketDashboard:
                                             options=[
                                                 {"label": "BTC/USD", "value": "BTCUSD"},
                                                 {"label": "ETH/USD", "value": "ETHUSD"},
+                                                {"label": "BNB/USD", "value": "BNBUSD"},
                                                 {"label": "EUR/USD", "value": "EURUSD"},
                                                 {
                                                     "label": "SPY (S&P 500)",
@@ -135,6 +136,7 @@ class MarketDashboard:
                                                 },
                                                 {"label": "5 - Detallado", "value": 5},
                                                 {"label": "6 - Complejo", "value": 6},
+                                                {"label": "7 - Máximo", "value": 7},
                                             ],
                                             value=4,
                                             clearable=False,
@@ -236,7 +238,7 @@ class MarketDashboard:
                         html.Div(
                             [
                                 html.P(
-                                    "MARKOVLENS PRO © 2026 | Arquitectura de Inteligencia Financiera Avanzada"
+                                    "MARKOVISION © 2026 | Arquitectura de Inteligencia Financiera Avanzada"
                                 )
                             ],
                             className="footer",
@@ -595,7 +597,7 @@ def create_dashboard():
 # Ejemplo de uso
 if __name__ == "__main__":
     print("=" * 60)
-    print("MARKOVLENS PRO - Dashboard")
+    print("MARKOVISION - Dashboard")
     print("=" * 60)
     print("\nIniciando servidor del dashboard...")
     print("Accede a: http://127.0.0.1:8050")

@@ -3,7 +3,7 @@ Módulo del Modelo Oculto de Markov (HMM)
 ========================================
 Implementa un modelo GaussianHMM para detección de regímenes de mercado.
 
-Autor: MarkovLens Pro
+Autor: MarkoVision
 Fecha: 2026
 """
 
@@ -359,7 +359,7 @@ def get_regime_statistics(
 # Ejemplo de uso
 if __name__ == "__main__":
     print("=" * 60)
-    print("MARKOVLENS PRO - Modelo HMM")
+    print("MARKOVISION - Modelo HMM")
     print("=" * 60)
 
     # Importar generador de datos

@@ -1,10 +1,10 @@
 """
-MarkovLens Pro - Aplicación Principal
+MarkoVision - Aplicación Principal
 ======================================
 Script principal para ejecutar el análisis de regímenes de mercado
 con Modelo Oculto de Markov.
 
-Autor: MarkovLens Pro
+Autor: MarkoVision
 Fecha: 2026
 """
 
@@ -44,7 +44,7 @@ def run_analysis(
         symbol: Símbolo a analizar
     """
     print(f"\n{'=' * 60}")
-    print(f"MarkovLens Pro - Análisis de Mercado")
+    print(f"MarkoVision - Análisis de Mercado")
     print(f"{'=' * 60}")
     print(f"Símbolo: {symbol}")
     print(f"Timeframe: {timeframe}")
@@ -112,7 +112,7 @@ def run_dashboard(port: int = 8050, debug: bool = False) -> None:
         debug: Modo debug
     """
     print_banner()
-    print("\n>> Iniciando MarkovLens Pro Dashboard...")
+    print("\n>> Iniciando MarkoVision Dashboard...")
     print(f"   Puerto: {port}")
     print(f"   Debug: {debug}")
     print(f"\n   Accede a: http://127.0.0.1:{port}")
@@ -159,7 +159,7 @@ import numpy as np
 def main():
     """Función principal."""
     parser = argparse.ArgumentParser(
-        description="MarkovLens Pro - Análisis de Regímenes de Mercado con HMM",
+        description="MarkoVision - Análisis de Regímenes de Mercado con HMM",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Ejemplos de uso:
