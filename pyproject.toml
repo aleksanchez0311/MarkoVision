@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "markovision"
-version = "1.0.0"
+version = "1.0.1"
 description = "Hidden Markov Model for Market Regime Detection"
 readme = "README.md"
 requires-python = ">=3.9"
