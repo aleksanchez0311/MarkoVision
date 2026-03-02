@@ -3,13 +3,14 @@
 MarkoVision PyInstaller Spec File
 ===================================
 Para construir el exe ejecutar: pyinstaller markovision.spec
+El exe abrira el dashboard automaticamente al ejecutarse.
 """
 
 import sys
 import os
 from PyInstaller.utils.hooks import collect_all, collect_data_files
 
-# Collect all data files from dash and plotly
+# Collect all data files from dependencies
 dash_datas, dash_binaries, dash_hiddenimports = collect_all('dash')
 plotly_datas, plotly_binaries, plotly_hiddenimports = collect_all('plotly')
 pandas_datas, pandas_binaries, pandas_hiddenimports = collect_all('pandas')
@@ -23,8 +24,9 @@ plotly_data = collect_data_files('plotly')
 
 block_cipher = None
 
+# El exe abrira directamente el dashboard
 a = Analysis(
-    ['app.py'],
+    ['dashboard.py'],
     pathex=[],
     binaries=
         dash_binaries +
@@ -71,6 +73,8 @@ a = Analysis(
             'sqlalchemy',
             'tenacity',
             'flask_compress',
+            'data_generator',
+            'hmm_model',
         ],
     hookspath=[],
     hooksconfig={},
@@ -84,6 +88,7 @@ a = Analysis(
 
 pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 
+# Ejecutar el dashboard directamente (no en modo consola)
 exe = EXE(
     pyz,
     a.scripts,
@@ -96,10 +101,11 @@ exe = EXE(
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    console=True,
+    console=False,  # Sin consola - abre ventana gráfica
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=None,  # Puedes agregar un icono aquí
 )
