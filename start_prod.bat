@@ -1,7 +1,7 @@
 @echo off
 REM MarkoVision Production Startup Script (Windows)
 REM ================================================
-REM Script para iniciar el servidor de producción con Gunicorn en Windows
+REM Script para iniciar el servidor de producción con Waitress en Windows
 
 set PORT=%PORT%
 if "%PORT%"=="" set PORT=8050
@@ -10,18 +10,16 @@ echo ========================================
 echo MarkoVision - Production Server
 echo ========================================
 echo Puerto: %PORT%
-echo Workers: 4
 echo.
 
-REM Verificar que gunicorn esté instalado
-gunicorn --version >nul 2>&1
+REM Verificar que waitress esté instalado
+waitress-serve --version >nul 2>&1
 if errorlevel 1 (
-    echo Error: gunicorn no esta instalado
-    echo Instala con: pip install gunicorn
-    pause
-    exit /b 1
+    echo Advertencia: waitress no esta instalado
+    echo Instalando...
+    pip install waitress
 )
 
-REM Iniciar servidor con Gunicorn
+REM Iniciar servidor con Waitress
 echo Iniciando servidor de produccion...
-gunicorn --workers 4 --bind 0.0.0.0:%PORT% --timeout 120 wsgi:app
+waitress-serve --host=0.0.0.0 --port=%PORT% --threads=6 wsgi:app

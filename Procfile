@@ -1,5 +1,6 @@
 # MarkoVision Procfile
 # =====================
 # Entry point for deployment platforms like Heroku, Render, etc.
+# Waitress funciona tanto en Linux como Windows
 
-web: gunicorn wsgi:app --workers 4 --bind 0.0.0.0:$PORT --timeout 120
+web: waitress-serve --host=0.0.0.0 --port=$PORT --threads=6 wsgi:app
